@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "baseline-environment-on-aws",
-  "version": "3.1.0",
+  "version": "1.0.0",
   "description": "Baseline Environment on AWS",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "@types/node": "^22.18.8",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
-    "knip": "^5.82.1",
+    "knip": "^5.82.0",
     "lint-staged": "^16.2.3",
     "prettier": "^3.6.2",
     "simple-git-hooks": "^2.13.1",
