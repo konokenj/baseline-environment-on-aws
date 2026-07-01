@@ -15,9 +15,9 @@ queue_rules:
       - status-success=Build on Node.js v22 on windows-latest
       - status-success=Validate PR title
     merge_conditions: []
-    commit_message_template: |-
-      {{ title }} (#{{ number }})
-      {{ body }}
+    commit_message_format:
+      title: pr-title
+      body: pr-body
     merge_method: squash
   - name: automatic merge of Dependabot PRs
     queue_conditions:
@@ -30,18 +30,17 @@ queue_rules:
       - status-success=Build on Node.js v22 on windows-latest
       - status-success=Validate PR title
     merge_conditions: []
-    commit_message_template: |-
-      {{ title }} (#{{ number }})
-      {{ body }}
+    commit_message_format:
+      title: pr-title
+      body: pr-body
     merge_method: squash
 
 pull_request_rules:
   - name: automatic merge
     actions:
       comment:
-        message:
-          Thank you for contributing! Your pull request will be updated from main and then merged automatically (do not update manually, and be sure to [allow
-          changes to be pushed to your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)).
+        message: Thank you for contributing! Your pull request will be updated from main and then merged automatically (do not update manually, and be sure to [allow changes to be pushed 
+          to your fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/allowing-changes-to-a-pull-request-branch-created-from-a-fork)).
     conditions:
       - base!=release
       - -title~=(WIP|wip)
@@ -81,3 +80,4 @@ priority_rules:
       - -approved-reviews-by~=author
       - '#changes-requested-reviews-by=0'
     priority: 2250
+    allow_checks_interruption: true
